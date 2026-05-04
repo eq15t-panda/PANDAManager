@@ -88,3 +88,27 @@ def pm100a_record_timeseries(fd, duration_s=10.0, sample_delay_s=0.1, use_fetch=
         time.sleep(sample_delay_s)
 
     return np.array(times, dtype=float), np.array(values, dtype=float)
+
+def record_pm100a(pm_fd, duration_s=10.0, dt_s=0.1):
+    t0 = time.time()
+
+    times = []
+    values_mW = []
+
+    while time.time() - t0 < duration_s:
+        t = time.time() - t0
+        value_mW = pm100a_read_value(pm_fd) * 1e3
+
+        times.append(t)
+        values_mW.append(value_mW)
+
+        time.sleep(dt_s)
+
+    times = np.array(times)
+    values_mW = np.array(values_mW)
+
+    mean_mW = np.mean(values_mW)
+    std_mW = np.std(values_mW, ddof=1)
+    error_mW = std_mW / np.sqrt(len(values_mW))  # error on the mean
+
+    return mean_mW, error_mW

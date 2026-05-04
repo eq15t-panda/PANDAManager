@@ -1,5 +1,6 @@
 import serial
 import time
+import numpy as np
 
 class OC3:
     def __init__(self, port):
@@ -41,3 +42,29 @@ class OC3:
 
     def close(self):
         self.ser.close()
+
+
+    def get_temperature(self):
+        return float(self.get_status().decode().split(";")[1])
+
+    def get_mean_temperature(oc, duration_s=2.0):
+        t0 = time.time()
+        values = []
+
+        while True:
+            now = time.time() - t0
+
+            if now >= duration_s:
+                break
+
+            if now < duration_s:
+
+                values.append(oc.get_temperature())
+
+        values = np.array(values)
+
+        mean_T = np.mean(values)
+        std_T = np.std(values, ddof=1)
+        err_T = std_T / np.sqrt(len(values))
+
+        return mean_T, err_T
