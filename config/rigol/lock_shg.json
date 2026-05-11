@@ -1,0 +1,12 @@
+{
+    "waveform1": "SIN",
+    "frequency1": 5000000.0,
+    "amplitude1": 20.0,
+    "offset1": 0.0,
+    "phase1": -70.0,
+    "waveform2": "SIN",
+    "frequency2": 5000000.0,
+    "amplitude2": 2.0,
+    "offset2": 0.0,
+    "phase2": 80.0
+}
