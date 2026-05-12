@@ -60,4 +60,19 @@ def set_plot_style():
         # -------------------------------------------------
         "grid.alpha": 0.3,
 
+        # -------------------------------------------------
+        # Color cycle
+        # -------------------------------------------------
+        # Use FlatUI colors for better visibility
+        "axes.prop_cycle": plt.cycler(color=[
+            "#e74c3c",  # red
+            "#3498db",  # blue
+            "#2ecc71",  # green
+            "#9b59b6",  # purple
+            "#f1c40f",  # yellow
+            "#e67e22",  # orange
+            "#1abc9c",  # turquoise
+            "#34495e",  # dark blue-gray
+        ]),
+
     })
