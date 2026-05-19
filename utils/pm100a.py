@@ -18,11 +18,10 @@ def record_pm100a(ressource, duration_s=10.0, dt_s=0.1):
     while time() - t0 < duration_s:
         t = time() - t0
         # Do not use READ? It is a different/older measurement path or stale low-level reading
-        P_W = float(pm100a.query("MEAS:POW?").strip())
+        P_W = float(ressource.query("MEAS:POW?").strip())
         values_mW.append(P_W * 1e3)
         # print(value_mW)
         times.append(t)
-        values_mW.append(value_mW)
 
         sleep(dt_s)
 
