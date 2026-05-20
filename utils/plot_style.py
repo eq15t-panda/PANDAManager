@@ -16,7 +16,7 @@ def set_plot_style():
         # Figure
         # -------------------------------------------------
         "figure.figsize": (6.0, 4.0),
-        "figure.dpi": 120,
+        "figure.dpi": 300,
         "savefig.dpi": 300,
         "savefig.bbox": "tight",
 
@@ -74,5 +74,6 @@ def set_plot_style():
             "#1abc9c",  # turquoise
             "#34495e",  # dark blue-gray
         ]),
+
 
     })
