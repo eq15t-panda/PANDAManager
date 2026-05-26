@@ -204,7 +204,7 @@ def set_plot_style(width_frac=1.0, aspect=None):
         # ------------------------------------------------
         # Legend
         # ------------------------------------------------
-        "legend.frameon": False,
+        "legend.frameon": True,
 
         # ------------------------------------------------
         # Better scientific default colormap
