@@ -20,6 +20,7 @@ def make_run_dir(data_dir: str, meas: str, sample: str) -> str:
 
     idx = 1
     while os.path.exists(os.path.join(meas_dir, f"{run_name}_{idx:03d}")):
+        print(f"Directory {run_name}_{idx:03d} already exists. Incrementing index.")
         idx += 1
 
     run_dir = os.path.join(meas_dir, f"{run_name}_{idx:03d}")
