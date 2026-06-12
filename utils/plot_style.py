@@ -41,13 +41,15 @@ def fig_size(width_frac=1.0, aspect=None):
 # })
 # ------------------------------------------------
 
+custom = {
+    "blue390": "#007dff",
+    "red780":  "#ff0000",
+}
+
 def set_plot_style(width_frac=1.0, aspect=None):
 
     # Add custom colors to CSS4_COLORS for easy use by name
-    mcolors.CSS4_COLORS.update({
-        "blue390" : "#007dff",
-        "red780" : "#ff0000",
-    })
+    mcolors._colors_full_map.update(custom)
 
     # Set plot style parameters to match LaTeX document style
     mpl.rcParams.update({
