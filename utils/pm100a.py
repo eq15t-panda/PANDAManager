@@ -8,7 +8,7 @@ def record_pm100a(ressource, duration_s=10.0, dt_s=0.1):
     :param duration_s: Total recording duration in seconds
     :param dt_s: Time interval between consecutive readings in seconds
 
-    :return: Tuple of (mean power in mW, error on the mean in mW)
+    :return: Tuple of (mean power in mW, error on the mean in mW, values_mW)
     """
     t0 = time()
 
@@ -32,4 +32,4 @@ def record_pm100a(ressource, duration_s=10.0, dt_s=0.1):
     std_mW = np.std(values_mW, ddof=1)
     error_mW = std_mW / np.sqrt(len(values_mW))  # error on the mean
 
-    return mean_mW, error_mW
+    return mean_mW, error_mW, values_mW
