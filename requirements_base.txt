@@ -5,3 +5,4 @@ scipy
 labmate
 pyvisa-py
 pyserial
+tifffile 
